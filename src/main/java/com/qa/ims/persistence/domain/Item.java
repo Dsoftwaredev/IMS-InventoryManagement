@@ -2,34 +2,29 @@ package com.qa.ims.persistence.domain;
 
 import java.util.Objects;
 
-public class Items {
+public class Item {
 
-    private long productID;
+    private long id;
     private String productName;
-
     private double productPrice;
 
-    public Items(long productID, String productName, double productPrice) {
-        this.productID = productID;
+    public Item(long id, String productName, double productPrice) {
+        this.id = id;
         this.productName = productName;
         this.productPrice = productPrice;
     }
 
-    public Items(String productName, double productPrice) {
+    public Item(String productName, double productPrice) {
         this.productName = productName;
         this.productPrice = productPrice;
     }
 
-    public Items() {
-
+    public long getId() {
+        return id;
     }
 
-    public long getProductID() {
-        return productID;
-    }
-
-    public void setProductID(int productID) {
-        this.productID = productID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getProductName() {
@@ -51,7 +46,7 @@ public class Items {
     @Override
     public String toString() {
         return "Items{" +
-                "productID=" + productID +
+                "id=" + id +
                 ", productName='" + productName + '\'' +
                 ", productPrice=" + productPrice +
                 '}';
@@ -61,12 +56,12 @@ public class Items {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Items items = (Items) o;
-        return productID == items.productID && Double.compare(items.productPrice, productPrice) == 0 && productName.equals(items.productName);
+        Item item = (Item) o;
+        return id == item.id && Double.compare(item.productPrice, productPrice) == 0 && productName.equals(item.productName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productID, productName, productPrice);
+        return Objects.hash(id, productName, productPrice);
     }
 }
