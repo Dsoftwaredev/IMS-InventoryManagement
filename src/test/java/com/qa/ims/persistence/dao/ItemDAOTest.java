@@ -24,14 +24,9 @@ public class ItemDAOTest {
 
     @Test
     public void testCreate() {
-        final Item created = new Item(2L, "guitar", 200);
+        final Item created = new Item(1L, "guitar", 200);
         assertEquals(created, test.create(created));
     }
-    @Test
-    public void testReadAll() {
-        List<Item> expected = new ArrayList<>();
-        expected.add(new Item(1, "test", 100));
-        assertEquals(expected, test.readAll());
-    }
 
+    
 }
