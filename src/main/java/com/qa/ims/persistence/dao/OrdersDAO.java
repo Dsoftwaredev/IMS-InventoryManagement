@@ -58,8 +58,22 @@ public class OrdersDAO implements Dao<Orders> {
 
     @Override
     public Orders update(Orders orders) {
+        try (Connection connection = DBUtils.getInstance().getConnection();
+             PreparedStatement statement = connection
+                     .prepareStatement("UPDATE orders SET  = cust_id = ?, item_id = ? WHERE id = ?");) {
+            statement.setLong(1, orders.getCustID());
+            statement.setLong(2, orders.getItemID());
+            statement.setLong(3, orders.getOrderID());
+            statement.executeUpdate();
+            return read(orders.getOrderID());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         return null;
     }
+
+
+
 
     @Override
     public int delete(long id) {
@@ -80,6 +94,7 @@ public class OrdersDAO implements Dao<Orders> {
             long ItemID = resultSet.getInt("item_id");
             return new Orders(orderID, custID, ItemID);
         }
+
 
 
     public Orders readLatest() {
