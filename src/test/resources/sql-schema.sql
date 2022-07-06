@@ -21,4 +21,5 @@ create table if not exists `orders` (
     ``
     primary key(`id`)
     foreign key(`cust_id`) references `customers`(`id`);
+    foreign key()
 )

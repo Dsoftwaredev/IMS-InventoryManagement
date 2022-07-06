@@ -45,10 +45,9 @@ public class OrdersDAO implements Dao<Orders> {
     public Orders create(Orders orders) {
         try (Connection connection = DBUtils.getInstance().getConnection();
              PreparedStatement statement = connection
-                     .prepareStatement("INSERT INTO Orders(customer_id, cust_id, item_id ) VALUES (?, ?, ?)");) {
+                     .prepareStatement("INSERT INTO Orders(cust_id, item_id ) VALUES (?, ?)");) {
             statement.setLong(1, orders.getCustID());
             statement.setLong(2, orders.getItemID());
-            statement.setLong(3, orders.getItemID());
             statement.execute();
             return readLatest();
         } catch (Exception e) {
