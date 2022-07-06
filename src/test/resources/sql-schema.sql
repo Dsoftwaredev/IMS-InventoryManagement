@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
     `surname` VARCHAR(40) DEFAULT NULL,
     PRIMARY KEY (`id`)
 );
+drop table if exists `items`;
 CREATE TABLE IF NOT EXISTS `items` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`product_name` VARCHAR(40) DEFAULT NULL,
