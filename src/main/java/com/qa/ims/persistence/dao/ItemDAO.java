@@ -46,7 +46,7 @@ public class ItemDAO implements Dao<Item> {
     public Item create(Item item) {
         try (Connection connection = DBUtils.getInstance().getConnection();
              PreparedStatement statement = connection
-                     .prepareStatement("INSERT INTO Items(, ) VALUES (?, ?)");) {
+                     .prepareStatement("INSERT INTO items(product_name, product_price) VALUES (?, ?)");) {
             statement.setString(1, item.getProductName());
             statement.setDouble(2, item.getProductPrice());
             statement.execute();
@@ -72,7 +72,7 @@ public class ItemDAO implements Dao<Item> {
     public Item update(Item item) {
         try (Connection connection = DBUtils.getInstance().getConnection();
              PreparedStatement statement = connection
-                     .prepareStatement("UPDATE items SET first_name = ?, surname = ? WHERE id = ?");) {
+                     .prepareStatement("UPDATE items SET product_name = ?, product_price = ? WHERE id = ?");) {
             statement.setString(1, item.getProductName());
             statement.setDouble(2, item.getProductPrice());
             statement.setLong(3, item.getId());
@@ -98,7 +98,7 @@ public class ItemDAO implements Dao<Item> {
 
     @Override
     public Item modelFromResultSet(ResultSet resultSet) throws SQLException {
-        int id = resultSet.getInt("id");
+        long id = resultSet.getInt("id");
         String productName = resultSet.getString("product_name");
         double productPrice = resultSet.getDouble("product_price");
         return new Item(id, productName, productPrice);
