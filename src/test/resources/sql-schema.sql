@@ -13,3 +13,12 @@ CREATE TABLE IF NOT EXISTS `items` (
 	`product_price` DOUBLE DEFAULT NULL,
     PRIMARY KEY(`id`)
     );
+
+drop table if exists `orders`;
+create table if not exists `orders` (
+    `id` int(11) not null AUTO_INCREMENT`,
+    `cust_id` int(11) default null,
+    ``
+    primary key(`id`)
+    foreign key(`cust_id`) references `customers`(`id`);
+)
