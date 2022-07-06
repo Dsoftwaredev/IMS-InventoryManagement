@@ -1,8 +1,9 @@
 package com.qa.ims.persistence.domain;
 
+
 import java.util.Objects;
 
-public class Item {
+public class Item  {
 
     private long id;
     private String productName;
