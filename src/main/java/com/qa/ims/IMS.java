@@ -1,8 +1,10 @@
 package com.qa.ims;
 
 import com.qa.ims.controller.*;
+import com.qa.ims.persistence.dao.BasketDAO;
 import com.qa.ims.persistence.dao.ItemDAO;
 import com.qa.ims.persistence.dao.OrdersDAO;
+import com.qa.ims.persistence.domain.Basket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,19 +18,23 @@ public class IMS {
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	private final CustomerController customers;
-	private final ItemController items;
-
 	private final OrderController orders;
+	private final ItemController items;
 	private final Utils utils;
+	private final BasketController basket;
+
 
 	public IMS() {
 		this.utils = new Utils();
 		final CustomerDAO custDAO = new CustomerDAO();
 		final ItemDAO itemDAO = new ItemDAO();
 		final OrdersDAO ordersDAO = new OrdersDAO();
+		final BasketDAO basketDAO = new BasketDAO();
 		this.customers = new CustomerController(custDAO, utils);
-		this.items = new ItemController(itemDAO,utils);
 		this.orders = new OrderController(ordersDAO, utils);
+		this.items = new ItemController(itemDAO,utils);
+		this.basket = new BasketController(basketDAO, utils);
+
 	}
 
 	public void imsSystem() {
@@ -61,6 +67,9 @@ public class IMS {
 				break;
 			case ORDER:
 				active = this.orders;
+				break;
+				case BASKET:
+				active = this.basket;
 				break;
 			case STOP:
 				return;

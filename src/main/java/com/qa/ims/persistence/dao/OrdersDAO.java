@@ -1,6 +1,6 @@
 package com.qa.ims.persistence.dao;
 
-import com.qa.ims.persistence.domain.Item;
+
 import com.qa.ims.persistence.domain.Orders;
 import com.qa.ims.utils.DBUtils;
 
@@ -25,6 +25,10 @@ public class OrdersDAO implements Dao<Orders> {
         return new ArrayList<>();
     }
 
+    //experiment
+
+
+    //experiment ends
     @Override
     public Orders read(Long orderID) {
         try (Connection connection = DBUtils.getInstance().getConnection();
@@ -60,12 +64,12 @@ public class OrdersDAO implements Dao<Orders> {
     public Orders update(Orders orders) {
         try (Connection connection = DBUtils.getInstance().getConnection();
              PreparedStatement statement = connection
-                     .prepareStatement("UPDATE orders SET  = cust_id = ?, item_id = ? WHERE id = ?");) {
+                     .prepareStatement("UPDATE orders SET = cust_id = ?, item_id = ? WHERE id = ?");) {
             statement.setLong(1, orders.getCustID());
             statement.setLong(2, orders.getItemID());
             statement.setLong(3, orders.getOrderID());
             statement.executeUpdate();
-            return read(orders.getOrderID());
+            return readLatest();
         } catch (Exception e) {
             System.out.println(e);
         }

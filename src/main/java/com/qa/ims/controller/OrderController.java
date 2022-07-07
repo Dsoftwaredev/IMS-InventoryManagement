@@ -1,8 +1,11 @@
 package com.qa.ims.controller;
 
 import java.util.List;
+
+import com.qa.ims.persistence.dao.BasketDAO;
 import com.qa.ims.persistence.dao.ItemDAO;
 import com.qa.ims.persistence.dao.OrdersDAO;
+import com.qa.ims.persistence.domain.Basket;
 import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.persistence.domain.Orders;
 import org.apache.logging.log4j.LogManager;
@@ -52,6 +55,8 @@ public class OrderController implements CrudController<Orders> {
         return orders;
     }
 
+
+
     /**
      * Updates an existing customer by taking in user input
      */
@@ -59,7 +64,7 @@ public class OrderController implements CrudController<Orders> {
     public Orders update() {
         LOGGER.info("Please enter the id of the order you would like to update");
         Long id = utils.getLong();
-        LOGGER.info("Please enter a product name");
+        LOGGER.info("Please enter a product ID");
         long custID = utils.getLong();
         LOGGER.info("Please enter a product price");
         long ItemID = utils.getLong();
@@ -79,5 +84,7 @@ public class OrderController implements CrudController<Orders> {
         Long id = utils.getLong();
         return ordersDAO.delete(id);
     }
+
+
 
 }
