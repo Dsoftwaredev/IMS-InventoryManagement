@@ -1,8 +1,9 @@
 package com.qa.ims.persistence.domain;
 
+
 import java.util.Objects;
 
-public class Item {
+public class Item  {
 
     private long id;
     private String productName;
@@ -57,7 +58,7 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return id == item.id && Double.compare(item.productPrice, productPrice) == 0 && productName.equals(item.productName);
+        return id == item.id && Double.compare(item.productPrice, productPrice) == 0 && Objects.equals(productName, item.productName);
     }
 
     @Override
