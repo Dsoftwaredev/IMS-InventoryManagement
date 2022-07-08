@@ -45,7 +45,7 @@ If you wiish to deploy you will find a jar file in this repo.
 * mySQL
 *Gitbash version control
 *github version control
-*Jira Project Management
+*Jira Project Management - https://danielsoftwaredev1.atlassian.net/jira/software/projects/SCFPS/boards/1/backlog
 
 ## Versioning
 
