@@ -69,7 +69,7 @@ public class BasketController implements CrudController<Basket>{
 
     @Override
     public int delete() {
-        LOGGER.info("Please enter the id of the order you would like to delete");
+        LOGGER.info("Please enter the id of the basket you would like to delete");
         Long id = utils.getLong();
         return basketDAO.delete(id);
     }

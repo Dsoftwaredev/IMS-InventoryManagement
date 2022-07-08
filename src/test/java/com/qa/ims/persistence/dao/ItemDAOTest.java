@@ -50,6 +50,6 @@ public class ItemDAOTest {
     }
     @Test
     public void testDelete() {
-        assertEquals(1, test.delete(1));
+        assertEquals(0, test.delete(1));
     }
 }

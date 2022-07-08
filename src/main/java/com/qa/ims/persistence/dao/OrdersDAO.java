@@ -64,7 +64,7 @@ public class OrdersDAO implements Dao<Orders> {
     public Orders update(Orders orders) {
         try (Connection connection = DBUtils.getInstance().getConnection();
              PreparedStatement statement = connection
-                     .prepareStatement("UPDATE orders SET = cust_id = ?, item_id = ? WHERE id = ?");) {
+                     .prepareStatement("UPDATE orders SET cust_id = ?, item_id = ? WHERE id = ?");) {
             statement.setLong(1, orders.getCustID());
             statement.setLong(2, orders.getItemID());
             statement.setLong(3, orders.getOrderID());
