@@ -23,4 +23,14 @@ create table if not exists `orders` (
     foreign key(`cust_id`) references `customers`(`id`),
     foreign key(`item_id`) references `items`(`id`)
     );
+    drop table if exists `basket`;
+    create table if not exists `basket` (
+    `basket_id` int(15) NOT NULL auto_increment,
+    `orders_id` int(15) default null,
+    `items_id` int(15) default null,
+	`quantity` int(5) default null,
+    `total_cost` double default null,
+    primary key(`basket_id`),
+    foreign key (`orders_id`) references `orders`(`id`),
+    foreign key(`items_id`) references `items`(`id`));
 )
