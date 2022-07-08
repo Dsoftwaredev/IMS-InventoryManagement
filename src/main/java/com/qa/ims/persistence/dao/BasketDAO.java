@@ -103,6 +103,13 @@ public class BasketDAO implements Dao<Basket> {
 
     @Override
     public int delete(long id) {
+        try (Connection connection = DBUtils.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement("DELETE FROM basket WHERE basket_id = ?");) {
+            statement.setLong(1, id);
+            return statement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         return 0;
     }
 /*

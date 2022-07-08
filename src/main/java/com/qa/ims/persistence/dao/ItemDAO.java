@@ -86,9 +86,13 @@ public class ItemDAO implements Dao<Item> {
 
     @Override
     public int delete(long id) {
+        return 0;
+    }
+
+    public int delete(String name) {
         try (Connection connection = DBUtils.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM items WHERE id = ?");) {
-            statement.setLong(1, id);
+             PreparedStatement statement = connection.prepareStatement("DELETE FROM items WHERE product_name = ?");) {
+            statement.setString(1, name);
             return statement.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
