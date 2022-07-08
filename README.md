@@ -42,6 +42,7 @@ If you wiish to deploy you will find a jar file in this repo.
 
 * [Maven](https://maven.apache.org/) - Dependency Management
 * Java Using intelliJ
+* mySQL
 
 ## Versioning
 
@@ -55,6 +56,7 @@ We use [SemVer](http://semver.org/) for versioning.
 ## License
 
 This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
+Feel free to expand on this project however you wish.
 
 *For help in [Choosing a license](https://choosealicense.com/)*
 
