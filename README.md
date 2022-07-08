@@ -43,6 +43,9 @@ If you wiish to deploy you will find a jar file in this repo.
 * [Maven](https://maven.apache.org/) - Dependency Management
 * Java Using intelliJ
 * mySQL
+*Gitbash version control
+*github version control
+*Jira Project Management
 
 ## Versioning
 
@@ -63,4 +66,4 @@ Feel free to expand on this project however you wish.
 ## Acknowledgments
 
 * Big thank you to red team who have been a friendly source of debate and help.
-
+* My Thanks also go to the QA Trainers and QA.
